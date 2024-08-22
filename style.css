@@ -1,0 +1,192 @@
+/*
+	1. background색을 원하는 색으로 넣어주세요.
+
+	2. 새의 몸통을 원하는대로 꾸며주세요.
+	- 센터정렬하면서 중앙보다 살짝 더 아래 위치하게 해주세요.
+
+*/
+
+body {
+	background-color: skyblue;
+  }
+  
+  .bird {
+	animation-name: fly;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	
+  
+	position: absolute;
+	bottom: 200px;
+	left: 0;
+	right: 0;
+	margin: auto;
+  
+	width: 150px;
+	height: 150px;
+	background-color: white;
+  
+	border-top-left-radius: 65px;
+	border-top-right-radius: 65px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+  
+	text-align: center;
+  }
+  
+  .bird .head {
+
+	width: 50px;
+	height: 50px;
+	background: #000;
+	margin: auto;	
+	
+  }
+
+ 
+  .bird .eye:before {
+	
+	content: ""; 
+	display: inline-block; 
+  
+	width: 14px;
+	height: 16px;
+  
+	background-color: yellowgreen;
+	position: relative;
+	top: 18px;
+  
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+  }
+  
+  .bird .eye {
+	animation: eye 0.1s infinite;
+	width: 15px;
+	height: 15px;
+	background-color: #000;
+	border-radius: 100%;
+	display: inline-block;  
+	margin: 30px 15px;
+  }
+  
+  .bird .mouth {
+	animation: mouth 0.1s infinite;
+	width: 0;
+	height: 0;
+	border: 20px solid hotpink;
+	margin: 0 auto;
+  
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+  
+	border-color:  hotpink transparent;
+	position: relative;
+	top: -20px;
+	
+  }
+  
+  .bird .wing {
+	width: 70px;
+	height: 100px;
+	background-color: orange;
+	position: absolute;
+	top: 50px;
+	left: 0; 
+  }
+  
+  .bird .wing.left {
+	left: 0;
+  
+	border-bottom-left-radius: 50px;
+	border-top-right-radius: 50px;
+  
+	border-bottom: 5px solid yellow;
+  
+	transform-origin: left top;
+	transform: rotateY(180deg);
+  
+	animation: wing 0.3s infinite alternate;
+  }
+  
+  .bird .wing.right {
+	left: auto; 
+	right: 0;
+  
+	border-bottom-right-radius: 50px;
+	border-top-left-radius: 50px;
+  
+	border-bottom: 5px solid yellow;
+  
+	transform-origin: right top;
+	transform: rotateY(180deg);
+  
+	animation: wing 0.3s infinite alternate;
+  }
+  
+  .bird:after {
+	content: ""; 
+	display: inline-block; 
+	width: 30px;
+	height: 50px;
+	background-color: red;
+	margin: 40px 10px;
+  
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+  
+	position: relative;
+	top: -10px;
+  }
+
+  /************* 키프레임 ************/
+  @keyframes fly {
+	0% {
+	  bottom: -150px;
+	}
+  
+	50% {
+	  transform: scaleX(0.5);
+	}
+  
+	100% {
+	  bottom: 1000px;
+	  transform: scaleX(2);
+	}
+  }
+
+
+  @keyframes wing {
+	0% {
+	  transform: scale(0.5) rotateY(180deg);
+	}
+  
+	100% {
+	  transform: scale(2) rotateY(-180deg);
+	}
+  }
+  
+  @keyframes eye {
+	0% {
+		transform: scale(0.1) rotateY(180deg);
+	}
+
+	100% {
+		transform: scale(1.0) rotateY(-180px);
+	}
+  }
+    
+  @keyframes mouth {
+	0% {
+	  transform: scale(1.2) rotateX(180deg);
+	}
+  
+	100% {
+	  transform: scale(2.0) rotateX(-180deg);
+	}
+  }
+
+  
